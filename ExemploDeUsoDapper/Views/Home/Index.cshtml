@@ -1,0 +1,25 @@
+﻿@model List<ExemploDeUsoDapper.Models.User>
+<fieldset style="padding-top: 50px">
+    <button type="button" class="btn btn-success"><a href="@Url.Action("Cadastrar","Home")" style="text-decoration: none;color: #10005f">Create User</a></button>
+    <h1>List Users</h1>
+    <table class="table">
+        <tr>
+            <td>Id</td>
+            <td>Name User</td>
+            <td>Email</td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.ID</td>
+                <td>@user.NameUser</td>
+                <td>@user.Email</td>
+                <td><a class="glyphicon glyphicon-pencil" href="@Url.Action("Editar","Home",new{id=@user.ID})"></a></td>
+                <td><a class="glyphicon glyphicon-remove" href="@Url.Action("Delete","Home",new{id=@user.ID})"></a></td>
+            </tr>
+        }
+
+    </table>
+</fieldset>
