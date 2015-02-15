@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -15,7 +16,7 @@ namespace ExemploDeUsoDapper.Models
         {
             conection.Open();
         }
-        public MySqlConnection conection = new MySqlConnection("Database=dappertest;Data Source=localhost;User Id=root; Password=root");
+        public MySqlConnection conection = new MySqlConnection("Database=dappertest;Data Source=localhost;User Id=root; Password=root") ?? new ConfigurationManager.AppSettings.Get("MySql_URI");
     }
 
 }
